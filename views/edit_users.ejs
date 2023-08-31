@@ -1,0 +1,33 @@
+
+<%- include("partials/header") -%>
+<div class="container">
+  <div class="row my-4">
+      <div class="col-lg-6 mx-auto mt-4">
+        <legend class="btn btn-dark"><h3>Edit Users (<%= user.name %>)</h3></legend>
+        <form class="" action="/update/<%= user._id %>" method="post" id="add-form" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" value="<%= user.name %>" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" value="<%= user.email %>"  name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="InputPassword" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="InputPassword" value="<%= user.phone %>"  name="phone" required>
+          </div>
+          <div class="mb-3 form-check">
+            <label for="myfile" >Select a file:</label>
+            <input type="file" id="myfile" name="image" >
+            <img src="/<%= user.image %>" width="100" class="img-thumbnail mt-1">
+          </div>
+          <input type="hidden" name="old_image" value="<%= user.image %>">
+          <button type="submit" class="btn btn-dark"><h5>Update User</h5></button>
+        </form>
+      </div>
+  </div>
+</div>
+
+
+<%- include("partials/footer") -%>
